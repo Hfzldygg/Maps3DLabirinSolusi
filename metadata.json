@@ -1,0 +1,6 @@
+{
+  "name": "Labirin Solusi - Peta Interaktif Dunia Kerja",
+  "description": "Peta interaktif labirin solusi dunia kerja dalam genggaman teknologi Era Society 5.0, menampilkan alur tantangan, peluang, dan konseling DUDI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
