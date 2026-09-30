@@ -15,7 +15,8 @@ import {
   Zap,
   AlertTriangle,
   ArrowRight,
-  ChevronRight
+  ChevronRight,
+  Users
 } from 'lucide-react';
 
 interface Interactive3DMazeMapProps {
@@ -33,6 +34,7 @@ export const Interactive3DMazeMap: React.FC<Interactive3DMazeMapProps> = ({
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
   const [isSimulating, setIsSimulating] = useState(false);
   const [simStep, setSimStep] = useState(0);
+  const [showTeamInfo, setShowTeamInfo] = useState(true);
 
   // Sequential order sorted strictly by stepSeq 1 to 28 (Kesiapan Pekerja removed!)
   const allOrderedNodes = [...MAZE_3D_NODES].sort((a, b) => a.stepSeq - b.stepSeq);
@@ -208,31 +210,83 @@ export const Interactive3DMazeMap: React.FC<Interactive3DMazeMapProps> = ({
 
       </div>
 
-      {/* 2. THE CONTINUOUS ISOMETRIC LABYRINTH MAP CANVAS */}
-      <div className="w-full max-w-7xl overflow-x-auto p-2 sm:p-5 rounded-3xl bg-gradient-to-b from-[#050c1f] via-[#040816] to-[#02040c] border-2 border-cyan-800/40 shadow-2xl relative">
+      {/* 2. DEDICATED HEADER & LEGEND BAR (Diletakkan di atas kanvas, TIDAK MENGHALANGI / MENIMBUN MAPS) */}
+      <div className="w-full max-w-7xl px-3 sm:px-4 py-2.5 mb-2 rounded-2xl bg-slate-900/90 border border-cyan-800/40 backdrop-blur-md flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3 shadow-lg">
         
-        {/* Route Status Legend Overlay */}
-        <div className="absolute top-4 left-4 z-20 flex flex-col gap-1.5 bg-slate-950/90 backdrop-blur-md p-3 rounded-2xl border border-cyan-800/60 text-xs shadow-xl pointer-events-none max-w-xs">
-          <div className="flex items-center gap-2 font-bold text-white text-[11px] uppercase tracking-wider">
+        {/* Left: Alur Runtut Legend */}
+        <div className="flex flex-wrap items-center gap-2 text-xs">
+          <div className="flex items-center gap-2 font-bold text-white text-[11px] uppercase tracking-wider mr-1">
             <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-ping" />
-            <span>Alur Runtut 01 ➔ 28 (Nyambung Bersih)</span>
+            <span>Alur 01 ➔ 28:</span>
           </div>
-          <div className="text-[10px] text-slate-300 space-y-1 mt-0.5">
-            <div className="flex items-center gap-2">
-              <span className="w-3 h-1 bg-emerald-400 rounded-full" />
-              <span>Jalur Hijau Melayang: Peluang Pintas (10 ➔ 15)</span>
+          <span className="inline-flex items-center gap-1.5 bg-emerald-950/70 border border-emerald-700/50 px-2.5 py-1 rounded-lg text-[10.5px] text-emerald-300">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+            Peluang Pintas (10-15)
+          </span>
+          <span className="inline-flex items-center gap-1.5 bg-amber-950/70 border border-amber-700/50 px-2.5 py-1 rounded-lg text-[10.5px] text-amber-300">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+            Tantangan Labirin (16-21)
+          </span>
+          <span className="inline-flex items-center gap-1.5 bg-cyan-950/70 border border-cyan-700/50 px-2.5 py-1 rounded-lg text-[10.5px] text-cyan-300">
+            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+            Konseling & Sukses (22-28)
+          </span>
+        </div>
+
+        {/* Right: Welcome to the Future & Kelompok 7 (Rapi di atas kanvas, maps bebas tertimbun) */}
+        <div className="flex flex-wrap items-center justify-between lg:justify-end gap-2.5 text-xs">
+          <div className="flex items-center gap-2">
+            <div className="text-left sm:text-right">
+              <span className="text-[10px] font-extrabold uppercase tracking-wider text-cyan-400 block">
+                Welcome to the Future:
+              </span>
+              <span className="font-extrabold text-white text-xs tracking-tight">
+                Dunia Kerja dalam Genggaman Teknologi
+              </span>
             </div>
-            <div className="flex items-center gap-2">
-              <span className="w-3 h-1 bg-amber-400 rounded-full" />
-              <span>Jalur Kuning/Merah: Tantangan Labirin (16 ➔ 21)</span>
+            <span className="text-[10px] font-bold bg-gradient-to-r from-cyan-600 to-indigo-600 text-white px-2 py-0.5 rounded shadow-xs">
+              Kelompok 7
+            </span>
+          </div>
+
+          <button
+            onClick={() => setShowTeamInfo(!showTeamInfo)}
+            className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 text-[10px] font-semibold transition-colors"
+            title="Sembunyikan / Tampilkan detail anggota"
+          >
+            <Users className="w-3 h-3 text-cyan-400" />
+            <span>{showTeamInfo ? 'Tutup Anggota' : 'Lihat Anggota (3)'}</span>
+          </button>
+        </div>
+      </div>
+
+      {/* Expanded Team Members Horizontal Strip (Diletakkan di luar kanvas) */}
+      {showTeamInfo && (
+        <div className="w-full max-w-7xl px-4 py-2 mb-2 rounded-xl bg-slate-950/80 border border-cyan-900/40 text-xs flex flex-wrap items-center justify-between gap-2 animate-in fade-in">
+          <span className="text-[10px] font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-1.5">
+            <Users className="w-3.5 h-3.5" />
+            <span>Anggota Kelompok 7:</span>
+          </span>
+          <div className="flex flex-wrap items-center gap-2 text-[11px]">
+            <div className="flex items-center gap-1.5 bg-slate-900 px-2.5 py-1 rounded-lg border border-slate-800">
+              <span className="font-medium text-slate-200">1. Sherly Sri Wulandari</span>
+              <span className="font-mono text-cyan-300 text-[10px] bg-cyan-950 px-1.5 py-0.2 rounded border border-cyan-800/60 font-bold">23110041</span>
             </div>
-            <div className="flex items-center gap-2">
-              <span className="w-3 h-1 bg-cyan-400 rounded-full" />
-              <span>Jalur Biru/Emas: Konseling DUDI & Sukses (22 ➔ 28)</span>
+            <div className="flex items-center gap-1.5 bg-slate-900 px-2.5 py-1 rounded-lg border border-slate-800">
+              <span className="font-medium text-slate-200">2. Christine Bella Oktavia</span>
+              <span className="font-mono text-cyan-300 text-[10px] bg-cyan-950 px-1.5 py-0.2 rounded border border-cyan-800/60 font-bold">23110041</span>
+            </div>
+            <div className="flex items-center gap-1.5 bg-slate-900 px-2.5 py-1 rounded-lg border border-slate-800">
+              <span className="font-medium text-slate-200">3. Desty Nur Rahmawati</span>
+              <span className="font-mono text-cyan-300 text-[10px] bg-cyan-950 px-1.5 py-0.2 rounded border border-cyan-800/60 font-bold">23110092</span>
             </div>
           </div>
         </div>
+      )}
 
+      {/* 3. THE CONTINUOUS ISOMETRIC LABYRINTH MAP CANVAS (100% BEBAS DARI TIMBUNAN KARTU) */}
+      <div className="w-full max-w-7xl overflow-x-auto p-2 sm:p-5 rounded-3xl bg-gradient-to-b from-[#050c1f] via-[#040816] to-[#02040c] border-2 border-cyan-800/40 shadow-2xl relative">
+        
         {/* Hover Info Tooltip */}
         {hoveredNode && (
           <div 

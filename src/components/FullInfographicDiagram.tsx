@@ -11,7 +11,8 @@ import {
   ZoomOut, 
   RotateCcw,
   CheckCircle2,
-  Info
+  Info,
+  Users
 } from 'lucide-react';
 
 interface FullInfographicDiagramProps {
@@ -78,6 +79,43 @@ export const FullInfographicDiagram: React.FC<FullInfographicDiagramProps> = ({
       >
         <div className="min-w-[1060px] space-y-6 text-slate-800">
           
+          {/* Top Canvas Header Bar with Kelompok 7 (Pojok Kanan Atas) */}
+          <div className="flex items-center justify-between pb-3 border-b-2 border-slate-200/80">
+            <div className="flex items-center gap-2.5">
+              <span className="w-2.5 h-2.5 rounded-full bg-sky-500 animate-ping" />
+              <span className="text-xs font-bold uppercase tracking-wider text-sky-800">
+                Diagram Alur Transformasi Digital & Dunia Kerja
+              </span>
+            </div>
+
+            {/* Pojok Kanan Atas Title & Kelompok 7 Card */}
+            <div className="flex items-center gap-4 bg-gradient-to-r from-sky-50 via-indigo-50/50 to-purple-50/80 border border-sky-200/80 px-4 py-2 rounded-2xl shadow-xs">
+              <div className="text-right">
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-sky-600 block">
+                  Welcome to the Future:
+                </span>
+                <span className="font-extrabold text-xs text-slate-900 block leading-tight">
+                  Dunia Kerja dalam Genggaman Teknologi
+                </span>
+              </div>
+
+              <div className="h-8 w-[1.5px] bg-slate-300" />
+
+              <div className="text-left">
+                <div className="flex items-center gap-1.5 mb-0.5">
+                  <span className="text-[10px] font-bold text-white bg-indigo-600 px-2 py-0.2 rounded-full">
+                    Kelompok 7
+                  </span>
+                </div>
+                <div className="text-[10px] text-slate-700 font-medium space-y-0.5 leading-tight">
+                  <div>1. Sherly Sri Wulandari <span className="font-mono text-slate-500 font-normal">(23110041)</span></div>
+                  <div>2. Christine Bella Oktavia <span className="font-mono text-slate-500 font-normal">(23110041)</span></div>
+                  <div>3. Desty Nur Rahmawati <span className="font-mono text-slate-500 font-normal">(23110092)</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* ======================================================== */}
           {/* ROW 1: PENDAHULUAN | HERO CLUSTER | FAKTOR PENDORONG     */}
           {/* ======================================================== */}

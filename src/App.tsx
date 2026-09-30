@@ -15,7 +15,9 @@ import {
   Search, 
   Box, 
   LayoutGrid,
-  Info
+  Info,
+  Users,
+  X
 } from 'lucide-react';
 
 export default function App() {
@@ -26,6 +28,7 @@ export default function App() {
   const [selectedDiagramItem, setSelectedDiagramItem] = useState<DiagramItem | null>(null);
   const [isIntroModalOpen, setIsIntroModalOpen] = useState(false);
   const [isQuizOpen, setIsQuizOpen] = useState(false);
+  const [isTeamModalOpen, setIsTeamModalOpen] = useState(false);
   const [isMuted, setIsMuted] = useState(soundFX.getMuted());
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -74,12 +77,14 @@ export default function App() {
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-cyan-400 bg-cyan-950/80 px-2 py-0.5 rounded border border-cyan-800/60">
-                  Labirin 3D Interaktif
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-cyan-400 bg-cyan-950/90 px-2 py-0.5 rounded border border-cyan-800/80">
+                  Welcome to the Future:
                 </span>
-                <span className="text-xs text-slate-400">28 Titik Interaktif (Alur Runtut Nyambung)</span>
+                <span className="text-xs font-bold text-white bg-gradient-to-r from-cyan-600 to-indigo-600 px-2 py-0.5 rounded shadow-sm">
+                  Kelompok 7
+                </span>
               </div>
-              <h1 className="text-base sm:text-lg font-extrabold text-white tracking-tight leading-tight">
+              <h1 className="text-base sm:text-lg font-extrabold text-white tracking-tight leading-tight mt-0.5">
                 Dunia Kerja dalam Genggaman Teknologi
               </h1>
             </div>
@@ -118,6 +123,19 @@ export default function App() {
                 <span>Diagram Alur (Bagan Datar)</span>
               </button>
             </div>
+
+            {/* Kelompok 7 Members Modal Trigger */}
+            <button
+              onClick={() => {
+                soundFX.playSoftTick();
+                setIsTeamModalOpen(true);
+              }}
+              className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-gradient-to-r from-cyan-950 to-indigo-950 hover:from-cyan-900 hover:to-indigo-900 text-cyan-300 border border-cyan-700/60 text-xs font-semibold transition-colors shadow-sm"
+              title="Lihat Anggota Kelompok 7"
+            >
+              <Users className="w-3.5 h-3.5 text-cyan-400" />
+              <span>Kelompok 7 (3 Anggota)</span>
+            </button>
 
             {/* Career Readiness Quiz */}
             <button
@@ -211,10 +229,117 @@ export default function App() {
 
       </main>
 
-      {/* Footer */}
-      <footer className="w-full bg-[#030611] border-t border-slate-800/80 py-3.5 px-4 text-center text-xs text-slate-500">
-        <p>Peta Labirin Solusi 3D Interaktif: "Dunia Kerja dalam Genggaman Teknologi - Adaptasi hari ini, peluang esok nanti"</p>
+      {/* Footer with Group 7 credits */}
+      <footer className="w-full bg-[#030611] border-t border-slate-800/80 py-4 px-4 text-center text-xs text-slate-400">
+        <div className="max-w-4xl mx-auto space-y-1">
+          <p className="font-bold text-white text-xs sm:text-sm">
+            Welcome to the Future: Dunia Kerja dalam Genggaman Teknologi
+          </p>
+          <p className="text-[11px] text-cyan-300">
+            Karya <strong className="text-white font-bold">Kelompok 7</strong>: 
+            1. Sherly Sri Wulandari (23110041) · 2. Christine Bella Oktavia (23110041) · 3. Desty Nur Rahmawati (23110092)
+          </p>
+        </div>
       </footer>
+
+      {/* POPUP: KELOMPOK 7 TEAM MODAL */}
+      {isTeamModalOpen && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in"
+          onClick={() => setIsTeamModalOpen(false)}
+        >
+          <div 
+            className="w-full max-w-md bg-slate-900 border-2 border-cyan-500/60 rounded-3xl p-6 shadow-2xl shadow-cyan-950/50 text-slate-100 relative animate-in zoom-in-95"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close button */}
+            <button
+              onClick={() => setIsTeamModalOpen(false)}
+              className="absolute top-4 right-4 p-2 rounded-full hover:bg-slate-800 text-slate-400 hover:text-white transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            {/* Header Badge */}
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-[10px] font-extrabold uppercase tracking-wider text-cyan-400 bg-cyan-950 px-2.5 py-0.5 rounded-full border border-cyan-800">
+                Welcome to the Future
+              </span>
+              <span className="text-[10px] font-extrabold text-white bg-gradient-to-r from-cyan-600 to-indigo-600 px-2.5 py-0.5 rounded-full shadow-xs">
+                Kelompok 7
+              </span>
+            </div>
+
+            <h2 className="text-lg font-black text-white tracking-tight leading-tight">
+              Dunia Kerja dalam Genggaman Teknologi
+            </h2>
+            <p className="text-xs text-slate-300 mt-1 italic">
+              "Adaptasi hari ini, peluang esok nanti"
+            </p>
+
+            <div className="mt-5 pt-4 border-t border-slate-800">
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-cyan-300 mb-3">
+                <Users className="w-4 h-4 text-cyan-400" />
+                <span>Daftar Anggota Kelompok 7:</span>
+              </div>
+
+              <div className="space-y-2.5">
+                <div className="flex items-center justify-between p-3 rounded-2xl bg-slate-950/90 border border-slate-800/90 shadow-sm">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-xl bg-cyan-600/30 text-cyan-300 font-bold flex items-center justify-center text-xs border border-cyan-500/40">
+                      1
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold text-white">Sherly Sri Wulandari</div>
+                      <div className="text-[10px] text-slate-400">Anggota Kelompok</div>
+                    </div>
+                  </div>
+                  <div className="font-mono text-xs font-bold text-cyan-400 bg-cyan-950/90 px-2.5 py-1 rounded-lg border border-cyan-800/60">
+                    23110041
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between p-3 rounded-2xl bg-slate-950/90 border border-slate-800/90 shadow-sm">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-xl bg-indigo-600/30 text-indigo-300 font-bold flex items-center justify-center text-xs border border-indigo-500/40">
+                      2
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold text-white">Christine Bella Oktavia</div>
+                      <div className="text-[10px] text-slate-400">Anggota Kelompok</div>
+                    </div>
+                  </div>
+                  <div className="font-mono text-xs font-bold text-cyan-400 bg-cyan-950/90 px-2.5 py-1 rounded-lg border border-cyan-800/60">
+                    23110041
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between p-3 rounded-2xl bg-slate-950/90 border border-slate-800/90 shadow-sm">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-xl bg-purple-600/30 text-purple-300 font-bold flex items-center justify-center text-xs border border-purple-500/40">
+                      3
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold text-white">Desty Nur Rahmawati</div>
+                      <div className="text-[10px] text-slate-400">Anggota Kelompok</div>
+                    </div>
+                  </div>
+                  <div className="font-mono text-xs font-bold text-cyan-400 bg-cyan-950/90 px-2.5 py-1 rounded-lg border border-cyan-800/60">
+                    23110092
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button
+              onClick={() => setIsTeamModalOpen(false)}
+              className="w-full mt-5 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs shadow-md transition-colors"
+            >
+              Tutup
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* POPUP: DIAGRAM ITEM DETAIL MODAL ("Pas di klik muncul keterangannya") */}
       {selectedDiagramItem && (
