@@ -77,7 +77,7 @@ export default function App() {
                 <span className="text-[10px] font-bold uppercase tracking-wider text-cyan-400 bg-cyan-950/80 px-2 py-0.5 rounded border border-cyan-800/60">
                   Labirin 3D Interaktif
                 </span>
-                <span className="text-xs text-slate-400">30+ Ikon & Materi Lengkap</span>
+                <span className="text-xs text-slate-400">28 Titik Interaktif (Alur Runtut Nyambung)</span>
               </div>
               <h1 className="text-base sm:text-lg font-extrabold text-white tracking-tight leading-tight">
                 Dunia Kerja dalam Genggaman Teknologi

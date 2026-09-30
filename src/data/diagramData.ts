@@ -397,7 +397,7 @@ export const DIAGRAM_SECTIONS: Record<string, DiagramSection> = {
   },
   konselingDudi: {
     id: 'konseling-dudi',
-    numberBadge: '6. Konseling Dunia Usaha dan Industri (DUDI)',
+    numberBadge: '5. Konseling Dunia Usaha dan Industri (DUDI)',
     title: 'Konseling Dunia Usaha dan Industri (DUDI)',
     colorTheme: 'teal',
     items: [
@@ -477,7 +477,7 @@ export const DIAGRAM_SECTIONS: Record<string, DiagramSection> = {
   },
   hasilAkhir: {
     id: 'hasil-akhir',
-    numberBadge: '7. Hasil Akhir',
+    numberBadge: '6. Hasil Akhir',
     title: 'PEKERJA YANG LEBIH SIAP MENGHADAPI PERUBAHAN',
     colorTheme: 'pink',
     introText: 'Dengan dukungan konseling yang tepat, pekerja dapat memanfaatkan peluang, menghadapi tantangan, dan terus berkembang di era digital.',
@@ -486,7 +486,7 @@ export const DIAGRAM_SECTIONS: Record<string, DiagramSection> = {
         id: 'ha-sukses',
         title: 'Pekerja Tangguh & Adaptif Era Society 5.0',
         category: 'Hasil Akhir',
-        sectionNumber: '07',
+        sectionNumber: '06',
         iconType: 'target',
         detailedExplanation: 'Muara dari seluruh rangkaian kesiapan, pemahaman tantangan, pemanfaatan peluang, dan pendampingan konseling DUDI adalah lahirnya pekerja masa depan yang mandiri, adaptif, kompeten secara digital, dan sehat secara mental.',
         practicalExample: 'Tenaga kerja yang mampu bersinergi harmonis dengan AI, memiliki kepuasan batin tinggi dalam bekerja, dan berdaya saing global.',
@@ -503,7 +503,6 @@ export const getAllDiagramItems = (): DiagramItem[] => {
   if (DIAGRAM_SECTIONS.bentukPerubahan.items) items.push(...DIAGRAM_SECTIONS.bentukPerubahan.items);
   if (DIAGRAM_SECTIONS.peluangPekerja.items) items.push(...DIAGRAM_SECTIONS.peluangPekerja.items);
   if (DIAGRAM_SECTIONS.tantanganPekerja.items) items.push(...DIAGRAM_SECTIONS.tantanganPekerja.items);
-  if (DIAGRAM_SECTIONS.kesiapanPekerja.items) items.push(...DIAGRAM_SECTIONS.kesiapanPekerja.items);
   if (DIAGRAM_SECTIONS.konselingDudi.items) items.push(...DIAGRAM_SECTIONS.konselingDudi.items);
   if (DIAGRAM_SECTIONS.hasilAkhir.items) items.push(...DIAGRAM_SECTIONS.hasilAkhir.items);
   return items;

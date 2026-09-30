@@ -311,64 +311,33 @@ export const FullInfographicDiagram: React.FC<FullInfographicDiagramProps> = ({
           </div>
 
           {/* ======================================================== */}
-          {/* CONNECTOR LINE DOWN TO SECTION 5                          */}
+          {/* CONNECTOR DIRECTLY DOWN TO KONSELING DUDI                 */}
+          {/* Alur langsung: Peluang & Tantangan langsung bermuara ke Konseling */}
           {/* ======================================================== */}
-          <div className="flex justify-center -my-2">
-            <div className="flex items-center text-purple-600">
-              <ArrowDown className="w-5 h-5 animate-bounce" />
+          <div className="flex items-center justify-center gap-4 my-3">
+            <div className="flex items-center gap-1.5 text-emerald-700 bg-emerald-50 px-3.5 py-1 rounded-full border border-emerald-300 shadow-xs text-xs font-semibold">
+              <span>Alur Peluang</span>
+              <ArrowDown className="w-3.5 h-3.5 text-emerald-600 animate-bounce" />
+            </div>
+
+            <div className="flex items-center gap-2 text-sky-700 bg-sky-50 px-4 py-1.5 rounded-full border border-sky-300 shadow-sm text-xs font-bold">
+              <span>Solusi Terarah Tanpa Beban Berlebih</span>
+              <ArrowDown className="w-4 h-4 text-sky-600 animate-bounce" />
+            </div>
+
+            <div className="flex items-center gap-1.5 text-rose-700 bg-rose-50 px-3.5 py-1 rounded-full border border-rose-300 shadow-xs text-xs font-semibold">
+              <ArrowDown className="w-3.5 h-3.5 text-rose-600 animate-bounce" />
+              <span>Alur Tantangan</span>
             </div>
           </div>
 
           {/* ======================================================== */}
-          {/* ROW 3: 5. KESIAPAN PEKERJA                               */}
-          {/* ======================================================== */}
-          <div className="bg-purple-100/70 border-2 border-purple-400 rounded-3xl p-3.5 shadow-sm relative">
-            {/* Header Badge */}
-            <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-purple-700 text-white font-extrabold text-xs px-6 py-0.5 rounded-full shadow-sm">
-              5. Kesiapan Pekerja
-            </div>
-
-            <div className="grid grid-cols-5 gap-3 pt-2">
-              {DIAGRAM_SECTIONS.kesiapanPekerja.items?.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => handleItemClick(item)}
-                  className="bg-white/90 hover:bg-purple-50 border border-purple-300 rounded-2xl p-2.5 flex items-center gap-3 cursor-pointer transition-all hover:scale-105 hover:shadow-md text-left group"
-                >
-                  <div className="w-10 h-10 rounded-2xl bg-purple-200 text-purple-800 flex items-center justify-center shrink-0 border border-purple-300 group-hover:bg-purple-600 group-hover:text-white transition-colors">
-                    <DiagramIcon name={item.iconType} size={20} className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <div className="font-extrabold text-[11px] text-slate-900 leading-tight">
-                      {item.title.split('(')[0]}
-                    </div>
-                    {item.title.includes('(') && (
-                      <div className="text-[9.5px] text-slate-500 italic mt-0.5">
-                        ({item.title.split('(')[1]}
-                      </div>
-                    )}
-                  </div>
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* ======================================================== */}
-          {/* CONNECTOR LINE DOWN TO SECTION 6                          */}
-          {/* ======================================================== */}
-          <div className="flex justify-center -my-2">
-            <div className="flex items-center text-cyan-600">
-              <ArrowDown className="w-5 h-5 animate-bounce" />
-            </div>
-          </div>
-
-          {/* ======================================================== */}
-          {/* ROW 4: 6. KONSELING DUNIA USAHA DAN INDUSTRI (DUDI)       */}
+          {/* ROW 3: 5. KONSELING DUNIA USAHA DAN INDUSTRI (DUDI)       */}
           {/* ======================================================== */}
           <div className="bg-sky-50/80 border-2 border-sky-400 rounded-3xl p-3.5 shadow-sm relative">
             {/* Header Badge */}
             <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-sky-600 text-white font-extrabold text-xs px-6 py-0.5 rounded-full shadow-sm">
-              6. Konseling Dunia Usaha dan Industri (DUDI)
+              5. Konseling Dunia Usaha dan Industri (DUDI)
             </div>
 
             <div className="grid grid-cols-6 gap-2.5 pt-2">
@@ -396,7 +365,7 @@ export const FullInfographicDiagram: React.FC<FullInfographicDiagramProps> = ({
           </div>
 
           {/* ======================================================== */}
-          {/* CONNECTOR LINE DOWN TO SECTION 7                          */}
+          {/* CONNECTOR LINE DOWN TO HASIL AKHIR                        */}
           {/* ======================================================== */}
           <div className="flex justify-center -my-2">
             <div className="flex items-center text-pink-600">
@@ -405,7 +374,7 @@ export const FullInfographicDiagram: React.FC<FullInfographicDiagramProps> = ({
           </div>
 
           {/* ======================================================== */}
-          {/* ROW 5: 7. HASIL AKHIR                                    */}
+          {/* ROW 4: 6. HASIL AKHIR                                    */}
           {/* ======================================================== */}
           <div className="flex justify-center">
             <div 
@@ -417,7 +386,7 @@ export const FullInfographicDiagram: React.FC<FullInfographicDiagramProps> = ({
             >
               {/* Header Badge */}
               <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-purple-700 text-white font-extrabold text-xs px-6 py-0.5 rounded-full shadow-sm">
-                7. Hasil Akhir
+                6. Hasil Akhir
               </div>
 
               {/* Target Bullseye Icon */}
