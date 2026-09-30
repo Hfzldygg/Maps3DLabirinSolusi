@@ -237,7 +237,7 @@ export default function App() {
           </p>
           <p className="text-[11px] text-cyan-300">
             Karya <strong className="text-white font-bold">Kelompok 7</strong>: 
-            1. Sherly Sri Wulandari (23110041) · 2. Christine Bella Oktavia (23110041) · 3. Desty Nur Rahmawati (23110092)
+            1. Sherly Sri Wulandari (23110038) · 2. Christine Bella Oktavia (23110041) · 3. Desty Nur Rahmawati (23110092)
           </p>
         </div>
       </footer>
@@ -295,7 +295,7 @@ export default function App() {
                     </div>
                   </div>
                   <div className="font-mono text-xs font-bold text-cyan-400 bg-cyan-950/90 px-2.5 py-1 rounded-lg border border-cyan-800/60">
-                    23110041
+                    23110038
                   </div>
                 </div>
 

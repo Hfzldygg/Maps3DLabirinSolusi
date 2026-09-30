@@ -270,7 +270,7 @@ export const Interactive3DMazeMap: React.FC<Interactive3DMazeMapProps> = ({
           <div className="flex flex-wrap items-center gap-2 text-[11px]">
             <div className="flex items-center gap-1.5 bg-slate-900 px-2.5 py-1 rounded-lg border border-slate-800">
               <span className="font-medium text-slate-200">1. Sherly Sri Wulandari</span>
-              <span className="font-mono text-cyan-300 text-[10px] bg-cyan-950 px-1.5 py-0.2 rounded border border-cyan-800/60 font-bold">23110041</span>
+              <span className="font-mono text-cyan-300 text-[10px] bg-cyan-950 px-1.5 py-0.2 rounded border border-cyan-800/60 font-bold">23110038</span>
             </div>
             <div className="flex items-center gap-1.5 bg-slate-900 px-2.5 py-1 rounded-lg border border-slate-800">
               <span className="font-medium text-slate-200">2. Christine Bella Oktavia</span>

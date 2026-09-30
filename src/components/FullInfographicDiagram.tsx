@@ -108,7 +108,7 @@ export const FullInfographicDiagram: React.FC<FullInfographicDiagramProps> = ({
                   </span>
                 </div>
                 <div className="text-[10px] text-slate-700 font-medium space-y-0.5 leading-tight">
-                  <div>1. Sherly Sri Wulandari <span className="font-mono text-slate-500 font-normal">(23110041)</span></div>
+                  <div>1. Sherly Sri Wulandari <span className="font-mono text-slate-500 font-normal">(23110038)</span></div>
                   <div>2. Christine Bella Oktavia <span className="font-mono text-slate-500 font-normal">(23110041)</span></div>
                   <div>3. Desty Nur Rahmawati <span className="font-mono text-slate-500 font-normal">(23110092)</span></div>
                 </div>
